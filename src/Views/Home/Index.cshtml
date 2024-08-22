@@ -1,8 +1,60 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model EmailModel
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="row">
+    <div class="col-7">
+        <div id="image-area">
+            <img src="https://piktochart.com/wp-content/uploads/2024/02/piktoai-templat_63195213.png"
+                 alt="Public Image"
+                 width="720"
+                 height="256"
+            >
+        </div>
+        <div id="text-area" class="col-md-auto">
+            <p id="text-p" class="text-left">
+                 FREE FOR EVERYONE
+            </p>
+            <h2 id="text-h2" class="text-left text-light">
+                Technology is reshaping traditional Industries
+            </h2>
+            <h4 id="text-h4" >
+                As we move forward, technology will continue to be a transformative force, shaping the future in unpredictable and fascinating ways.
+                It is a dynamic field that offers incredible opportunities, but also requires careful thought about its social and ethical implications.
+                By paying close attention to these aspects, we can better navigate the waves of innovation and build a more connected and equitable future.
+            </h4>
+        </div>
+        <div id="text-area-ls" class="col-md-auto">
+            <h5 id="ls-title">
+                Inclusion and Sustainability
+            </h5>
+            <p id="ls-subtitle">
+                However, technological advancement does not come without challenges.
+                Issues such as inequality in access to technologies, the environmental
+                impact of electronic devices and the growing dependence on technology 
+                are topics that require attention.
+            </p>
+        </div>
+    </div>
+    <div id="input-area" class="col-4">
+        <p id="input-title" class="text-left">
+            BE PART OF OUR TEAM
+        </p>
+        <h4 id="input-subtitle">
+            Sign up for free to access our work
+        </h4>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control text-white bg-dark" id="floatingInputGroup1" placeholder="Username">
+            <label for="floatingInputGroup1" class="text-light">Name</label>
+        </div>
+        <div class="form-floating">
+            <input type="email" class="form-control text-white bg-dark" id="floatingInput" placeholder="name@example.com">
+            <label for="floatingInput" class="text-light">Email address</label>
+        </div>
+        <button 
+            type="button"
+            id="confirm-button"
+            class="btn btn-primary btn-lg"
+        >
+            send email
+        </button>
+    </div>
 </div>
