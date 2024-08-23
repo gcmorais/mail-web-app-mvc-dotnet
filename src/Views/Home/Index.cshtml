@@ -1,12 +1,10 @@
 ﻿@model EmailModel
 
-<div class="row">
+<div class="row g-0">
     <div class="col-7">
         <div id="image-area">
             <img src="https://piktochart.com/wp-content/uploads/2024/02/piktoai-templat_63195213.png"
                  alt="Public Image"
-                 width="720"
-                 height="256"
             >
         </div>
         <div id="text-area" class="col-md-auto">
@@ -41,20 +39,22 @@
         <h4 id="input-subtitle">
             Sign up for free to access our work
         </h4>
-        <div class="form-floating mb-3">
-            <input type="text" class="form-control text-white bg-dark" id="floatingInputGroup1" placeholder="Username">
-            <label for="floatingInputGroup1" class="text-light">Name</label>
-        </div>
-        <div class="form-floating">
-            <input type="email" class="form-control text-white bg-dark" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput" class="text-light">Email address</label>
-        </div>
-        <button 
-            type="button"
-            id="confirm-button"
-            class="btn btn-primary btn-lg"
-        >
-            send email
-        </button>
+        <form id="email_form" >
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control text-white bg-dark" id="floatingInputGroup1" placeholder="Username">
+                <label for="floatingInputGroup1" class="text-light">Name</label>
+            </div>
+            <div class="form-floating">
+                <input type="email" class="form-control text-white bg-dark" id="floatingInput" placeholder="name@example.com">
+                <label for="floatingInput" class="text-light">Email address</label>
+            </div>
+            <button 
+                type="submit"
+                id="confirm-button"
+                class="btn btn-primary btn-lg"
+            >
+                send email
+            </button>
+        </form>    
     </div>
 </div>
