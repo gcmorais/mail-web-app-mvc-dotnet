@@ -1,0 +1,21 @@
+﻿@model EmailModel
+
+<div class="card bg-dark text-center w">
+    <h5 class="card-header text-light ">
+        Everything went well!
+    </h5>
+    <div class="card-body">
+        <div>
+            <div style="height:350px" class="text-center mt-5 mb-5">
+                <img src="/img/undraw_fireworks.svg" style="width: 100%; height: 100%" />
+            </div>
+        </div>
+        <h2 class="text-center" style="color:#fff">
+            Congratulations, <strong style="color:darkorange">@Model.Nome</strong>
+        </h2>
+        <p class="text-light">
+            We know you're anxious but wait until we get in touch, good luck!
+        </p>
+        <a id="confirm-button" class="btn btn-primary" onclick="window.location='@Url.Action("Index")'">Go to home</a>
+    </div>
+</div>

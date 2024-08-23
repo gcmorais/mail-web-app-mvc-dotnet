@@ -3,6 +3,3 @@
 
 // Write your JavaScript code.
 
-$("#email_form").submit(function (e) {
-    e.preventDefault();
-});

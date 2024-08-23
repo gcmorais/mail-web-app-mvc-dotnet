@@ -39,14 +39,16 @@
         <h4 id="input-subtitle">
             Sign up for free to access our work
         </h4>
-        <form id="email_form" >
+        <form id="email_form" method="post" asp-controller="Home" asp-action="SaveClientsData">
             <div class="form-floating mb-3">
-                <input type="text" class="form-control text-white bg-dark" id="floatingInputGroup1" placeholder="Username">
+                <input type="text" class="form-control text-white bg-dark" id="floatingInputGroup1" placeholder="Username" asp-for="Nome">
                 <label for="floatingInputGroup1" class="text-light">Name</label>
+                <span asp-validation-for="Nome"></span>
             </div>
             <div class="form-floating">
-                <input type="email" class="form-control text-white bg-dark" id="floatingInput" placeholder="name@example.com">
+                <input type="email" class="form-control text-white bg-dark" id="floatingInput" placeholder="name@example.com" asp-for="Email">
                 <label for="floatingInput" class="text-light">Email address</label>
+                <span asp-validation-for="Email"></span>
             </div>
             <button 
                 type="submit"

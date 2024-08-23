@@ -1,10 +1,13 @@
 using mail_web_app.Data;
+using mail_web_app.Services.EmailService;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddScoped<IEmailInterface, EmailService>();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
