@@ -23,5 +23,12 @@ namespace mail_web_app.Controllers
             var registryEmails = await _emailInterface.ListMails();
             return View(registryEmails);
         }
+
+        [HttpGet]
+        public async Task<ActionResult<EmailModel>> DetailsEmail(int id)
+        {
+            var registerEmail = await _emailInterface.ListMailsById(id);
+            return View(registerEmail);
+        }
     }
 }

@@ -36,6 +36,20 @@ namespace mail_web_app.Services.EmailService
             }
         }
 
+        public async Task<EmailModel> ListMailsById(int id)
+        {
+            try
+            {
+                var registerEmail = await _context.Emails.FirstOrDefaultAsync(info => info.Id == id);
+
+                return registerEmail;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
         public async Task<EmailModel> SaveClientsData(EmailModel info)
         {
             try

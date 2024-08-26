@@ -7,7 +7,7 @@
         <div class="text-center mb-5">
             <form method="get" asp-action="Index" asp-controller="Email" class="d-flex justify-content-center">
                 <input name="search" class="form-control w-50 mx-2" style="border:1px solid gray; border-radius:10px"/>
-                <button type="submit" class="btn btn-primary w-10">Pesquisar</button>
+                <button type="submit" class="btn btn-primary w-10">Search</button>
             </form>
         </div>
 
@@ -49,7 +49,7 @@
                                             <td>@info.Email</td>
                                             <td>@info.DataDeRegistro.ToString("dd/MM/yyyy")</td>
                                             <td>
-                                                <a class="btn btn-primary" asp-action="Details" asp-controller="Email" asp-route-id="@info.Id"><i class="bi bi-gear-fill"></i></a>
+                                                <a class="btn btn-primary" asp-action="DetailsEmail" asp-controller="Email" asp-route-id="@info.Id"><i class="bi bi-gear-fill"></i></a>
                                             </td>
                                         </tr>
                                     }

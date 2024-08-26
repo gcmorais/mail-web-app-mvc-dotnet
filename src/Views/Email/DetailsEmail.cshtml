@@ -1,0 +1,54 @@
+﻿@model EmailModel
+
+@if (Model != null)
+{
+    <div class="container text-center mt-5 text-light" id="containerInput">
+        <form method="post" asp-controller="Email" asp-action="EnviarEmail">
+
+            <input type="hidden" asp-for="Id" />
+
+            <div class="form-floating mb-3">
+                <input type="email" class="form-control bg-dark text-light" id="floatingInput" placeholder="name@example.com" asp-for="Email" disabled>
+                <label for="floatingInput">Email address</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control bg-dark text-light" id="floatingName" placeholder="Name" asp-for="Nome" disabled>
+                <label for="floatingName">Name</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control bg-dark text-light" id="floatingDate" placeholder="Date" asp-for="DataDeRegistro" disabled>
+                <label for="floatingDate">Date</label>
+            </div>
+
+            <input type="hidden" asp-for="Email" name="adressEmail" />
+
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control bg-dark text-light" id="floatingInput" placeholder="Email Subject" name="subjectEmail">
+                <label for="floatingInput">Email Subject</label>
+            </div>
+            <div class="form-floating mb-3">
+                <textarea class="form-control bg-dark text-light" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" name="textEmail"></textarea>
+                <label for="floatingTextarea2">Comments</label>
+            </div>
+
+            <button type="submit" class="btn btn-warning w-75 mb-2">
+                Send Email
+            </button>
+
+            @if (Model.Status == true)
+            {
+                <a class="btn btn-danger w-75 mb-2" style="font-size:16px" asp-action="ModificarStatus" asp-controller="Email" asp-route-id="@Model.Id">
+                    Inactivate Registration
+                </a>
+            }
+            else
+            {
+                <a class="btn btn-success w-75 mb-2" style="font-size:16px" asp-action="ModificarStatus" asp-controller="Email" asp-route-id="@Model.Id">
+                    Activate Registration
+                </a>
+            }
+            <a class="btn btn-info w-75" style="font-size:16px" asp-action="Index" asp-controller="Email">Back</a>
+
+        </form>
+    </div>
+}

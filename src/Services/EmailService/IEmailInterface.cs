@@ -6,5 +6,7 @@ namespace mail_web_app.Services.EmailService
     {
         Task<EmailModel> SaveClientsData(EmailModel info);
         Task<List<EmailModel>> ListMails(string search = null);
+
+        Task<EmailModel> ListMailsById(int id);
     }
 }
