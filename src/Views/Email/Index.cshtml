@@ -1,5 +1,18 @@
 ﻿@model IEnumerable<EmailModel>
 
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger text-dark" role="alert">
+        @TempData["ErrorMessage"]
+    </div>
+}
+
+@if (TempData["MessageSuccess"] != null)
+{
+    <div class="alert alert-success text-dark" role="alert">
+        @TempData["MessageSuccess"]
+    </div>
+}
 
 <div class="py-5">
     <div class="container">
@@ -62,5 +75,3 @@
         </div>
     </div>
 </div>
-
-

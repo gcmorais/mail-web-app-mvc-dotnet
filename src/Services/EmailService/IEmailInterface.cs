@@ -8,5 +8,7 @@ namespace mail_web_app.Services.EmailService
         Task<List<EmailModel>> ListMails(string search = null);
 
         Task<EmailModel> ListMailsById(int id);
+
+        bool SendEmail(string adressEmail, string subjectEmail, string textEmail);
     }
 }
