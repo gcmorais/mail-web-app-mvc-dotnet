@@ -11,5 +11,6 @@ namespace mail_web_app.Data
 
 
         public DbSet<EmailModel> Emails { get; set; }
+        public DbSet<UserModel> Users { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 using mail_web_app.Data;
 using mail_web_app.Services.EmailService;
+using mail_web_app.Services.UserService;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<IEmailInterface, EmailService>();
+builder.Services.AddScoped<IUserInterface, UserService>();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
 {

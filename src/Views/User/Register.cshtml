@@ -1,0 +1,47 @@
+﻿@using mail_web_app.Dto
+@model UserCreationDto
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger text-dark" role="alert">
+        @TempData["ErrorMessage"]
+    </div>
+}
+
+@if (TempData["MessageSuccess"] != null)
+{
+    <div class="alert alert-success text-dark" role="alert">
+        @TempData["MessageSuccess"]
+    </div>
+}
+
+
+<div class="container mt-5 text-light d-flex flex-column justify-content-center align-items-center">
+    <div id="image-area">
+        <img src="https://piktochart.com/wp-content/uploads/2024/02/piktoai-templat_63195213.png"
+             alt="Public Image">
+    </div>
+    <form method="post" asp-action="Register" asp-controller="User" class="w-75 mt-3">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Username</label>
+            <input type="text" class="form-control bg-dark text-light" id="InputUsername" aria-describedby="userHelp" placeholder="Enter username" asp-for="User">
+            <small id="emailHelp" class="form-text text-muted">Select a valid username.</small>
+        </div>
+        <div class="form-group mt-3">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control bg-dark text-light" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" asp-for="Email">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group mt-3">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control bg-dark text-light" id="exampleInputPassword1" placeholder="Password" asp-for="Password">
+        </div>
+        <div class="form-group mb-4 mt-3">
+            <label for="ConfirmPasswordInput">Confirm Password</label>
+            <input type="password" class="form-control bg-dark text-light" id="exampleInputPassword1" placeholder="Confirm-Password" asp-for="PasswordConfirm">
+        </div>
+        <button type="submit" class="btn btn-primary" style="background-color: #6441a5; border: none">Register</button>
+        <a class="btn btn-primary" style="background-color: #6441a5; border: none" asp-controller="Email" asp-action="Index">Back to home</a>
+    </form>
+</div>
+
