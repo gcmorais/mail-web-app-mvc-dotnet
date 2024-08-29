@@ -1,0 +1,37 @@
+﻿@using mail_web_app.Dto
+@model UserLoginDto
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger text-dark" role="alert">
+        @TempData["ErrorMessage"]
+    </div>
+}
+
+@if (TempData["MessageSuccess"] != null)
+{
+    <div class="alert alert-success text-dark" role="alert">
+        @TempData["MessageSuccess"]
+    </div>
+}
+
+
+<div class="container mt-5 text-light d-flex flex-column justify-content-center align-items-center" id="loginArea">
+    <div id="image-area" class="w-100  d-flex justify-content-center align-items-center">
+        <img 
+            style="width: 160px; height: 160px"
+             src="https://cdn-icons-png.flaticon.com/512/6830/6830335.png"
+             alt="Public Image">
+    </div>
+    <form method="post" asp-controller="Home" asp-action="Login" class="w-25 mt-3">
+        <div class="form-group">
+            <input type="email" class="form-control bg-dark text-light shadow-none" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" asp-for="Email">
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control bg-dark text-light mt-3 shadow-none" id="exampleInputPassword1" placeholder="Password" asp-for="Password">
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3 w-100" style="background-color: #6441a5; border: none">Enter</button>
+    </form>
+</div>

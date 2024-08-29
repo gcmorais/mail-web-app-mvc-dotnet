@@ -2,6 +2,7 @@
 using mail_web_app.Data;
 using mail_web_app.Dto;
 using mail_web_app.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace mail_web_app.Services.UserService
 {
@@ -21,6 +22,39 @@ namespace mail_web_app.Services.UserService
             {
                 saltPassword = hmac.Key;
                 hashPassword = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
+            }
+        }
+
+        public bool VerifyPassword(string password, byte[] hashPassword, byte[] saltPassword)
+        {
+            using (HMACSHA512 hmac = new HMACSHA512(saltPassword))
+            {
+                var computedHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
+                return computedHash.SequenceEqual(hashPassword);
+            }
+        }
+
+        public async Task<UserModel> Login(UserLoginDto userLoginDto)
+        {
+            try
+            {
+                var user = await _context.Users.FirstOrDefaultAsync(user => user.Email == userLoginDto.Email);
+
+                if(user == null)
+                {
+                    return new UserModel();
+                }
+
+                if(!VerifyPassword(userLoginDto.Password, user.HashPassword, user.SaltPassword))
+                {
+                    return new UserModel();
+                }
+
+                return user;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
             }
         }
 

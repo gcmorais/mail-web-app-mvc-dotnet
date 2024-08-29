@@ -1,5 +1,6 @@
 using mail_web_app.Data;
 using mail_web_app.Services.EmailService;
+using mail_web_app.Services.SectionService;
 using mail_web_app.Services.UserService;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,10 +11,18 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<IEmailInterface, EmailService>();
 builder.Services.AddScoped<IUserInterface, UserService>();
+builder.Services.AddScoped<ISectionInterface, SectionService>();
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+});
+
+builder.Services.AddSession(options =>
+{
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
 });
 
 var app = builder.Build();
@@ -32,6 +41,7 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+app.UseSession();
 
 app.MapControllerRoute(
     name: "default",

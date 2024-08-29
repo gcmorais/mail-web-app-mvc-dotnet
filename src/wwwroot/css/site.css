@@ -185,3 +185,10 @@ main {
 #containerInput{
     width: 50%;
 }
+
+#loginArea {
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
