@@ -1,10 +1,12 @@
 ﻿using mail_web_app.Dto;
+using mail_web_app.Filters;
 using mail_web_app.Models;
 using mail_web_app.Services.UserService;
 using Microsoft.AspNetCore.Mvc;
 
 namespace mail_web_app.Controllers
 {
+    [UserLogin]
     public class UserController : Controller
     {
 

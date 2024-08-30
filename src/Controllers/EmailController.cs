@@ -1,9 +1,11 @@
-﻿using mail_web_app.Models;
+﻿using mail_web_app.Filters;
+using mail_web_app.Models;
 using mail_web_app.Services.EmailService;
 using Microsoft.AspNetCore.Mvc;
 
 namespace mail_web_app.Controllers
 {
+    [UserLogin]
     public class EmailController : Controller
     {
         private readonly IEmailInterface _emailInterface;

@@ -1,6 +1,10 @@
 ﻿@using mail_web_app.Dto
 @model UserLoginDto
 
+@{
+    Layout = "_LayoutLoggedOut";
+}
+
 @if (TempData["ErrorMessage"] != null)
 {
     <div class="alert alert-danger text-dark" role="alert">
@@ -14,7 +18,6 @@
         @TempData["MessageSuccess"]
     </div>
 }
-
 
 <div class="container mt-5 text-light d-flex flex-column justify-content-center align-items-center" id="loginArea">
     <div id="image-area" class="w-100  d-flex justify-content-center align-items-center">

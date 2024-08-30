@@ -1,6 +1,10 @@
 ﻿@using mail_web_app.Dto
 @model UserCreationDto
 
+@{
+    Layout = "_Layout";
+}
+
 @if (TempData["ErrorMessage"] != null)
 {
     <div class="alert alert-danger text-dark" role="alert">

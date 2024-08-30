@@ -36,6 +36,13 @@ namespace mail_web_app.Controllers
             return View();
         }
 
+        public IActionResult LoggedOut()
+        {
+
+            _sectionInterface.RemoveSection();
+            return RedirectToAction("Index");
+        }
+
         [HttpPost]
         public async Task<ActionResult> SaveClientsData(EmailModel Info)
         {
